@@ -1,0 +1,11 @@
+# Visual Studio
+.vs/
+*.ipch
+*.pch
+*.obj
+*.exe
+
+# Unreal
+Binaries/
+Intermediate/
+DerivedDataCache/
