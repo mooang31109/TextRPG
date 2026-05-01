@@ -1,7 +1,0 @@
-<Solution>
-  <Configurations>
-    <Platform Name="x64" />
-    <Platform Name="x86" />
-  </Configurations>
-  <Project Path="TextRPG/TextRPG.vcxproj" Id="060d265d-691e-4e5b-985c-3fb2020492f6" />
-</Solution>
