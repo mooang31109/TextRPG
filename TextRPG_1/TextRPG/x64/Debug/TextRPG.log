@@ -1,2 +1,8 @@
-﻿  Main.cpp
-  TextRPG.vcxproj -> C:\TextRPG_1\TextRPG\TextRPG\x64\Debug\TextRPG.exe
+﻿  Archer.cpp
+  Magician.cpp
+  Main.cpp
+  Player.cpp
+  Rogue.cpp
+  Warrior.cpp
+  Generating Code...
+  TextRPG.vcxproj -> C:\TextRPG_1\TextRPG\TextRPG_1\x64\Debug\TextRPG.exe

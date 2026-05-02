@@ -1,5 +1,10 @@
 #include <iostream>
 #include <string>
+#include "Player.h"
+#include "Warrior.h"
+#include "Magician.h"
+#include "Rogue.h"
+#include "Archer.h"
 
 using namespace std;
 const int SIZE = 4;
@@ -132,8 +137,53 @@ int main(void)
         case 5:
             printStatus(heroName, stat);
             break;
+        default:
+            cout << "Invalid choice. Try again." << endl;
+            break;
         }
     }
+
+    Player* player = nullptr;
+    cout << "\n< Job selection >" << endl;
+    cout << heroName << ", choose your job!" << endl;
+    cout << "1. Warrior   2. Mage   3. Rogue   4. Archer" << endl;
+    
+    while (player == nullptr)
+    {
+        cout << "Choose: ";
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            player = new Warrior(heroName, stat[0], stat[1], stat[2], stat[3]);
+            cout << "* You became a Warrior! (Defense +30)" << endl;
+            cout << "* Swings a greatsword!" << endl;
+            break;
+        case 2:
+            player = new Magician(heroName, stat[0], stat[1], stat[2], stat[3]);
+            cout << "* You became a Magician! (MP +30)" << endl;
+            cout << "* Fires a fireball!" << endl;
+            break;
+        case 3:
+            player = new Rogue(heroName, stat[0], stat[1], stat[2], stat[3]);
+            cout << "* You became a Rogue! (Attack +30)" << endl;
+            cout << "* Throws a dagger!" << endl;
+            break;
+        case 4:
+            player = new Archer(heroName, stat[0], stat[1], stat[2], stat[3]);
+            cout << "* You became a Archer! (HP +30)" << endl;
+            cout << "* Shoots an arrow!" << endl;
+            break;
+        default:
+            cout << "Invalid choice. Try again." << endl;
+            break;
+        }
+    }
+
+    player->printPlayerStatus();
+
+    delete player;
+    player = nullptr;
 
 	return 0;
 }
