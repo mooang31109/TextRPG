@@ -1,13 +1,21 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
+#include <vector>
+#include <cstdlib>
 #include "Player.h"
 #include "Warrior.h"
 #include "Magician.h"
 #include "Rogue.h"
 #include "Archer.h"
+#include "Monster.h"
+#include "Battle.h"
+#include "Item.h"
+#include "AlchemyWorkshop.h"
 
 using namespace std;
 const int SIZE = 4;
+//인벤토리
+vector <Item> inventory;
 
 void printStatus(string name, int stat[])
 {
@@ -27,7 +35,9 @@ int main(void)
     int Attack_UP = 1, Defense_UP = 1;
     int choice;
     bool isGameStart = false;
+    bool isRunning = true;
 
+    //플레이어 세팅
     cout << "===========================================" << endl;
     cout << "   [ Dungeon Escape Text RPG ]" << endl;
     cout << "===========================================" << endl;
@@ -62,6 +72,7 @@ int main(void)
     }
     printStatus(heroName, stat);
 
+    //캐릭터 업그레이드
     cout << "* You received 5 HP Potions and 5 MP Potions." << endl;
     cout << "============================================" << endl;
     cout << " < Character Upgrade >" << '\n'
@@ -143,6 +154,7 @@ int main(void)
         }
     }
 
+    //직업 선택
     Player* player = nullptr;
     cout << "\n< Job selection >" << endl;
     cout << heroName << ", choose your job!" << endl;
@@ -182,8 +194,83 @@ int main(void)
 
     player->printPlayerStatus();
 
+    //전투 시작
+    Monster slime("[Slime]", 30, 20, 10, "[Slime Jelly]", 50);
+    if (!battle(player, slime, inventory)) //전투 패배시 게임 종료
+    {
+        delete player;
+        player = nullptr;
+        return 0;
+    }
+
+    //포션 샵
+    AlchemyWorkshop potionshop;
+
+    //인벤토리
+    while (isRunning)
+    {
+        cout << "\n=== Main Menu ===" << endl;
+        cout << "1. Enter Dungeon" << endl;
+        cout << "2. Check Inventory" << endl;
+        cout << "3. Portion Shop" << endl;
+        cout << "0. Quit" << endl;
+        cout << "\nChoose: ";
+        cin >> choice;
+        switch (choice)
+        {
+        case 0:
+            cout << "Exit the Game. GoodBye!" << endl;
+            isRunning = false;
+            break;
+        case 1:
+        {
+            //던전 입장
+            int monsterChoice = rand() % 2;
+            if (monsterChoice == 0)
+            {
+                Monster goblin("[Goblin]", 50, 40, 50, "[Goblin Skin]", 60);
+                if (!battle(player, goblin, inventory))
+                {
+                    isRunning = false;
+                }
+            }
+            else
+            {
+                Monster ork("[Ork]", 80, 90, 100, "[Ork Hair]", 100);
+                if (!battle(player, ork, inventory))
+                {
+                    isRunning = false;
+                }
+            }
+            break;
+        }
+        case 2:
+            //인벤토리 확인
+            cout << "[ Inventory (" << inventory.size() << "/10) ]" << endl;
+            if (inventory.empty())
+            {
+                cout << " (Empty)" << endl;
+            }
+            else
+            {
+                int index = 1;
+                for (const Item& item : inventory)
+                {
+                    cout << index++ << ". ";
+                    item.PrintInfo();
+                }
+            }
+            break;
+        case 3:
+            potionshop.Run();
+            break;
+        default:
+            cout << "Invalid choice. Try again." << endl;
+            break;
+        }
+    }
+
     delete player;
     player = nullptr;
-
 	return 0;
 }

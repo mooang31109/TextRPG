@@ -9,5 +9,5 @@ Archer::Archer(string name, int hp, int mp, int power, int defense)
 
 void Archer::attack()
 {
-	cout << "[Archer] " << name << " Shoots an arrow!" << endl;
+	cout << "[Archer] " << name << " : Shoots an arrow!" << endl;
 }

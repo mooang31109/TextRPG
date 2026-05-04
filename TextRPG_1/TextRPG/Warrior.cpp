@@ -9,5 +9,5 @@ Warrior::Warrior(string name, int hp, int mp, int power, int defense)
 
 void Warrior::attack()
 {
-    cout << "[Warrior] " << name << " Swings a greatsword!" << endl;
+    cout << "[Warrior] " << name << " : Swings a greatsword!" << endl;
 }

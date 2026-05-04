@@ -1,8 +1,5 @@
-﻿  Archer.cpp
-  Magician.cpp
-  Main.cpp
-  Player.cpp
-  Rogue.cpp
+﻿  Main.cpp
+  Monster.cpp
   Warrior.cpp
   Generating Code...
   TextRPG.vcxproj -> C:\TextRPG_1\TextRPG\TextRPG_1\x64\Debug\TextRPG.exe

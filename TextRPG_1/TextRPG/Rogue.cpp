@@ -9,5 +9,5 @@ Rogue::Rogue(string name, int hp, int mp, int power, int defense)
 
 void Rogue::attack()
 {
-	cout << "[Rogue] " << name << " Throws a dagger!" << endl;
+	cout << "[Rogue] " << name << " : Throws a dagger!" << endl;
 }

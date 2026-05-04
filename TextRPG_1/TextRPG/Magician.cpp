@@ -9,5 +9,5 @@ Magician::Magician(string name, int hp, int mp, int power, int defense)
 
 void Magician::attack()
 {
-	cout << "[Magician] " << name << " Fires a fireball!" << endl;
+	cout << "[Magician] " << name << " : Fires a fireball!" << endl;
 }
