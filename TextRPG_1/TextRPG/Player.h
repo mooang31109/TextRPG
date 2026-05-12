@@ -3,6 +3,8 @@
 #include <string>
 using namespace std;
 
+class Monster;
+
 class Player
 {
 protected:
@@ -13,11 +15,14 @@ protected:
     int mp;
     int power;
     int defense;
+    int exp;
+    int maxExp;
 
 public:
     Player(string name, int hp, int mp, int power, int defense);
 
-    virtual void attack() = 0; //순수 가상함수
+    //virtual void attack() = 0; //순수 가상함수
+    virtual void attack(Monster* monster) = 0;
     virtual ~Player() {} // 가상소멸자
 
     // getter
@@ -35,4 +40,14 @@ public:
     void setDefense(int value) { defense = value; }
 
     void printPlayerStatus();
+
+    //getter
+    int getExp() { return exp; }
+    int getMaxExp() { return maxExp; }
+    int getLevel() { return level; }
+
+    //setter
+    void setExp(int value) { exp = value; }
+
+    void levelUp();
 };

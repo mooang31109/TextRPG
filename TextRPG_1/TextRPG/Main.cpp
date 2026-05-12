@@ -27,11 +27,23 @@ void printStatus(string name, int stat[])
     cout << "====================================" << endl;
 }
 
+
+/*
+포인터를 안쓰고 매개변수만 넘겼을때 값이 바뀌지 않는 이유는 ?
+->매개변수로 넘기면 값이 복사되기 때문. 복사가 된 값이 바뀌고 원본은 그대로라서.
+*/
+void setPotion(int count, int* p_HPPotion, int* p_MPPotion)
+{
+    *p_HPPotion = count;
+    *p_MPPotion = count;
+}
+
 int main(void)
 {
     string heroName;
     int stat[SIZE] = { 0 };
-    int HP_Potion = 5, MP_Potion = 5;
+    int HP_Potion = 0, MP_Potion = 0;
+    setPotion(5, &HP_Potion, &MP_Potion);
     int Attack_UP = 1, Defense_UP = 1;
     int choice;
     bool isGameStart = false;
@@ -195,7 +207,7 @@ int main(void)
     player->printPlayerStatus();
 
     //전투 시작
-    Monster slime("[Slime]", 30, 20, 10, "[Slime Jelly]", 50);
+    Monster slime("[Slime]", 30, 20, 10, "[Slime Jelly]", 50, 30);
     if (!battle(player, slime, inventory)) //전투 패배시 게임 종료
     {
         delete player;
@@ -228,7 +240,7 @@ int main(void)
             int monsterChoice = rand() % 2;
             if (monsterChoice == 0)
             {
-                Monster goblin("[Goblin]", 50, 40, 50, "[Goblin Skin]", 60);
+                Monster goblin("[Goblin]", 50, 40, 50, "[Goblin Skin]", 60, 50);
                 if (!battle(player, goblin, inventory))
                 {
                     isRunning = false;
@@ -236,7 +248,7 @@ int main(void)
             }
             else
             {
-                Monster ork("[Ork]", 80, 90, 100, "[Ork Hair]", 100);
+                Monster ork("[Ork]", 80, 90, 100, "[Ork Hair]", 100, 90);
                 if (!battle(player, ork, inventory))
                 {
                     isRunning = false;

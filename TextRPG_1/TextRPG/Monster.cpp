@@ -1,7 +1,7 @@
 #include "Monster.h"
 #include "Player.h"
 
-Monster::Monster(string name, int hp, int power, int defense, string dropItemName, int dropItemPrice)
+Monster::Monster(string name, int hp, int power, int defense, string dropItemName, int dropItemPrice, int expReward)
 {
 	this->name = name;
 	this->hp = hp;
@@ -9,6 +9,7 @@ Monster::Monster(string name, int hp, int power, int defense, string dropItemNam
 	this->defense = defense;
 	this->dropItemName = dropItemName;
 	this->dropItemPrice = dropItemPrice;
+	this->expReward = expReward;
 }
 
 void Monster::attack(Player* player)
