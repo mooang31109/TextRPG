@@ -204,6 +204,11 @@ int main(void)
         }
     }
 
+    // 직업 선택 후 포션 지급
+    inventory.push_back({ "HP Potion", 50, "potion" });
+    inventory.push_back({ "MP Potion", 50, "potion" });
+    cout << "* You received HP Potion x1 and MP Potion x1." << endl;
+
     player->printPlayerStatus();
 
     //전투 시작

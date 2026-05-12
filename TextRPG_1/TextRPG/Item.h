@@ -7,6 +7,7 @@ struct Item
 {
     string name;
     int price;
+    string type; //potion drop
 
     void PrintInfo() const
     {

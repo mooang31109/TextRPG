@@ -1,4 +1,11 @@
-﻿  Archer.cpp
+﻿  AlchemyWorkshop.cpp
+  Archer.cpp
+  Battle.cpp
+  Magician.cpp
+  Main.cpp
+  Monster.cpp
+  Player.cpp
   Rogue.cpp
-  Generating Code...
-  TextRPG.vcxproj -> C:\TextRPG_1\TextRPG\TextRPG_1\x64\Debug\TextRPG.exe
+  Warrior.cpp
+  코드를 생성하고 있습니다...
+  TextRPG.vcxproj -> C:\Users\user\Desktop\CPP\TextRPG_1\x64\Debug\TextRPG.exe

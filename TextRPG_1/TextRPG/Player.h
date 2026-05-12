@@ -13,6 +13,8 @@ protected:
     int level;
     int hp;
     int mp;
+    int maxHP;
+    int maxMP;
     int power;
     int defense;
     int exp;
@@ -28,6 +30,8 @@ public:
     // getter
     int getHP() { return hp; }
     int getMP() { return mp; }
+    int getMaxHP() { return maxHP; }
+    int getMaxMP() { return maxMP; }
     int getPower() { return power; }
     int getDefense() { return defense; }
     string getName() { return name; }

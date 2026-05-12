@@ -11,6 +11,8 @@ Player::Player(string name, int hp, int mp, int power, int defense)
     this->job = "None";
     this->exp = 0;
     this->maxExp = 100;
+    this->maxHP = hp;
+    this->maxMP = mp;
 }
 
 void Player::printPlayerStatus()
